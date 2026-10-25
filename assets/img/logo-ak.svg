@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="AK">
+  <defs>
+    <linearGradient id="ak-top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7cc3ff"/>
+      <stop offset="1" stop-color="#3d93e6"/>
+    </linearGradient>
+    <linearGradient id="ak-left" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f74d1"/>
+      <stop offset="1" stop-color="#1257ad"/>
+    </linearGradient>
+    <linearGradient id="ak-right" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d4592"/>
+      <stop offset="1" stop-color="#082f6b"/>
+    </linearGradient>
+  </defs>
+  <!-- isometric block, like a steel member section seen in a Tekla 3D view -->
+  <polygon points="50,6 88,28 50,50 12,28" fill="url(#ak-top)"/>
+  <polygon points="12,28 50,50 50,94 12,72" fill="url(#ak-left)"/>
+  <polygon points="50,50 88,28 88,72 50,94" fill="url(#ak-right)"/>
+  <!-- amber edge highlight -->
+  <polyline points="12,28 50,50 88,28" fill="none" stroke="#f5a400" stroke-width="2.4" stroke-linejoin="round"/>
+  <!-- letters lie on the two side faces -->
+  <g font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="31" fill="#ffffff" text-anchor="middle">
+    <text transform="matrix(0.866 0.5 0 1 12 28)" x="22" y="34">A</text>
+    <text transform="matrix(0.866 -0.5 0 1 50 50)" x="22" y="34">K</text>
+  </g>
+</svg>

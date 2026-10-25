@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AmberKnightor — Tekla Structures Developer</title>
+<meta name="description" content="Tekla Open API tools, plugins and macros that cut the factory export from 2–3 hours to about 30 minutes per designer.">
+<meta property="og:title" content="AmberKnightor — Tekla Structures Developer">
+<meta property="og:description" content="Tekla Open API tools, plugins and macros: factory export from 2–3 hours down to ~30 minutes per designer.">
+<meta property="og:image" content="assets/img/otchet-ui.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/logo-ak.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top"><img class="brand-logo" src="assets/img/logo-ak.svg" alt="" width="38" height="38"> AmberKnightor</a>
+    <nav class="nav-links">
+      <a href="#workflow">Workflow</a>
+      <a href="#tools">Tools</a>
+      <a href="#tekla">Tekla integration</a>
+      <a href="#plugins">Plugins</a>
+      <a href="#stack">Stack</a>
+      <a class="btn btn-small" href="https://t.me/AmberKnightor" target="_blank" rel="noopener">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================================================ HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Tekla Structures · Open API · C# · Python</p>
+      <h1>Tekla developer who turns a <span class="hl">3-hour factory export</span> into a 30-minute routine.</h1>
+      <p class="lead">I build desktop tools, plugins and macros on the Tekla Open API for a steel-structures
+        design team: DXF for plate cutting, STEP for tube lasers, assembly drawings, reports and
+        cross-checks — generated from the model and deployed to every workstation from one server folder.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#tools">See the tools</a>
+        <a class="btn btn-ghost" href="https://t.me/AmberKnightor" target="_blank" rel="noopener">Telegram @AmberKnightor</a>
+      </div>
+    </div>
+
+    <div class="impact card">
+      <p class="impact-title">Factory data export, per designer</p>
+      <div class="bar-row">
+        <span class="bar-label">Before</span>
+        <div class="bar"><div class="bar-fill before" style="--w:100%"><span>2–3 hours</span></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">After</span>
+        <div class="bar"><div class="bar-fill after" style="--w:20%"><span>~30 min</span></div></div>
+      </div>
+      <div class="impact-stats">
+        <div><strong>≈ 1 week</strong><span>saved every month for the design team</span></div>
+        <div><strong>5×</strong><span>faster release of cutting files, drawings and BOMs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PROBLEM -->
+<section class="section" id="problem">
+  <div class="wrap two-col">
+    <div>
+      <h2>The problem</h2>
+      <p>Every release of a steel structure goes to the factory as a package: plate contours for the
+        plasma/laser table, tube geometry for the tube laser, assembly drawings, bills of materials and
+        shipping tags. Done by hand in Tekla, that is hours of exporting, renaming, sorting into folders
+        and cross-checking quantities — and one missed part means a stopped production line.</p>
+    </div>
+    <ul class="checklist">
+      <li><b>Plates</b> — DXF per position with a readable part mark, sorted by steel grade and thickness</li>
+      <li><b>Tubes</b> — STEP/IGES in local coordinates, skewed cuts made machinable, part mark engraved</li>
+      <li><b>Drawings</b> — assembly and bent-plate drawings with views, sections and dimensions</li>
+      <li><b>Reports</b> — BOMs as real .xlsx, every file checked against the BOM before it ships</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ WORKFLOW -->
+<section class="section alt" id="workflow">
+  <div class="wrap">
+    <h2>One model, one click per step</h2>
+    <p class="section-lead">Each tool starts from the Tekla toolbar, reads the current selection through the
+      Open API and writes straight into the project folder the factory receives.</p>
+    <ol class="pipeline">
+      <li class="stage">
+        <span class="stage-num">1</span>
+        <h3>Tekla model</h3>
+        <p>Select plates, tubes or assemblies — or open the drawing list.</p>
+      </li>
+      <li class="stage">
+        <img src="assets/img/icon-report-checker.png" alt="" width="48" height="48">
+        <h3>Report checker</h3>
+        <p>DXF for plate cutting, BOMs in .xlsx, checks, tags, folder layout.</p>
+      </li>
+      <li class="stage">
+        <img src="assets/img/icon-convertstp.png" alt="" width="48" height="48">
+        <h3>Convertstp</h3>
+        <p>STEP / IGES for the tube laser with engraved part marks.</p>
+      </li>
+      <li class="stage">
+        <img src="assets/img/icon-drawer.png" alt="" width="48" height="48">
+        <h3>Drawer</h3>
+        <p>Assembly and bent-plate drawings built and dimensioned automatically.</p>
+      </li>
+      <li class="stage">
+        <span class="stage-num">✓</span>
+        <h3>Factory package</h3>
+        <p>Checked against the BOMs, mismatches highlighted back in the model.</p>
+      </li>
+    </ol>
+<pre class="tree"><code>Project\
+  0. BOMs\                      0. Shipping marks · 1. Plate parts · 2. Profile parts · 4. Assemblies · 6. Steel
+  1. Parts\
+     1. Plate cutting\          Steel C245\6 mm\1235_6mm_1pc.dxf
+     2. Profile cutting\        C245\Square tube\60x60x2\F1-1-10896_60x60x2_892.97mm_1pc.stp
+  Tags\                         one .dxf per shipping mark + tag list</code></pre>
+  </div>
+</section>
+
+<!-- ============================================================ TOOLS -->
+<section class="section" id="tools">
+  <div class="wrap">
+    <h2>The tools</h2>
+    <p class="section-lead">Three desktop applications built for daily production use. Every screenshot below
+      is the real program with its interface switched to English.</p>
+  </div>
+
+  <!-- Report checker -->
+  <article class="tool wrap" id="report-checker">
+    <div class="tool-head">
+      <img src="assets/img/icon-report-checker.png" alt="" width="64" height="64">
+      <div>
+        <h3>Report checker</h3>
+        <p class="tool-sub">Plate DXF export, Tekla reports to .xlsx and cross-checks · Python + C# helper</p>
+      </div>
+    </div>
+    <div class="tool-grid">
+      <figure class="shot">
+        <a href="assets/img/otchet-ui.png" class="zoom"><img src="assets/img/otchet-ui.png" alt="Report checker main window: DXF export, reports, checks and log" loading="lazy"></a>
+        <figcaption>Main window: DXF export settings, report templates, checks and a colour-coded log.</figcaption>
+      </figure>
+      <div class="tool-text">
+        <ul class="features">
+          <li><b>DXF straight from the model.</b> A C# console helper drives the Tekla Open API, has Tekla write
+            DSTV (NC1) for the selected plates and converts them to DXF R12: contour, cut-outs, round and slotted
+            holes on separate layers.</li>
+          <li><b>Part marks that never hit a hole.</b> The position mark is placed in the largest free area of the
+            plate and shrunk if needed; a fixer moves marks that cross geometry in existing files.</li>
+          <li><b>Reports without Excel macros.</b> Tekla report templates are run on the selection and re-saved as
+            formatted .xlsx (Tekla itself only writes HTML “.xls”).</li>
+          <li><b>Checks that point back at the model.</b> DXF and STEP folders are compared with the BOMs —
+            missing, extra and wrong-quantity files are listed and the parts are <i>selected in Tekla</i>.</li>
+          <li><b>Factory-ready folders.</b> Files renamed to <code>position_thickness_qty</code>, sorted by steel grade,
+            thickness, tube type and profile; shipping tags generated as DXF.</li>
+          <li><b>Any Tekla version.</b> Open API assemblies are loaded from the running Tekla (2016 → 2024 layouts),
+            so one exe serves the whole team.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tool-grid reverse">
+      <figure class="shot">
+        <a href="assets/img/otchet-viewer.png" class="zoom"><img src="assets/img/otchet-viewer.png" alt="DXF viewer with plate contour, holes and the position mark" loading="lazy"></a>
+        <figcaption>Built-in DXF viewer: every plate in the cutting folder, marks checked for collisions.</figcaption>
+      </figure>
+      <div class="video-slot" data-youtube="" data-title="Report checker walkthrough">
+        <span class="video-icon">▶</span>
+        <p><b>Video walkthrough</b><br>coming soon</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Convertstp -->
+  <article class="tool wrap" id="convertstp">
+    <div class="tool-head">
+      <img src="assets/img/icon-convertstp.png" alt="" width="64" height="64">
+      <div>
+        <h3>Convertstp</h3>
+        <p class="tool-sub">Tekla tubes → STEP / IGES for tube laser cutting · C# WinForms</p>
+      </div>
+    </div>
+    <div class="tool-grid">
+      <figure class="shot">
+        <a href="assets/img/convertstp-ui.png" class="zoom"><img src="assets/img/convertstp-ui.png" alt="Convertstp main window with tube list, engraving settings and export log" loading="lazy"></a>
+        <figcaption>Selection scan, export settings, part-mark engraving and the export log.</figcaption>
+      </figure>
+      <div class="tool-text">
+        <ul class="features">
+          <li><b>Real geometry, not a profile guess.</b> Each tube goes through Tekla’s own IFC export, is moved
+            into the part’s local coordinate system and converted to STEP or IGES (IfcConvert + own IGES writer
+            with trimmed faces and true arcs).</li>
+          <li><b>Machinable cuts.</b> Skewed wall cuts the laser cannot do are straightened; saddle cuts,
+            slots for plates and round-tube intersections are handled separately.</li>
+          <li><b>Engraving in the geometry.</b> The part mark is cut into the wide tube face — on the surface or
+            through the wall — while the Tekla model stays untouched.</li>
+          <li><b>Batch preview.</b> An HTML page shows every tube to scale with live sliders and per-tube
+            overrides, and warns when the text would land on a cut-out.</li>
+          <li><b>Production details.</b> Identical parts grouped, file names from a template, several Tekla
+            instances detected and the right Open API channel picked automatically.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tool-grid reverse">
+      <figure class="shot">
+        <a href="assets/img/convertstp-engraving.png" class="zoom"><img src="assets/img/convertstp-engraving.png" alt="Engraving batch preview with tube faces and part marks" loading="lazy"></a>
+        <figcaption>Engraving batch preview: tube faces to scale with the engraved part marks.</figcaption>
+      </figure>
+      <div class="video-slot" data-youtube="" data-title="Convertstp walkthrough">
+        <span class="video-icon">▶</span>
+        <p><b>Video walkthrough</b><br>coming soon</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Drawer -->
+  <article class="tool wrap" id="drawer">
+    <div class="tool-head">
+      <img src="assets/img/icon-drawer.png" alt="" width="64" height="64">
+      <div>
+        <h3>Drawer</h3>
+        <p class="tool-sub">Automatic assembly and bent-plate drawings · C# · Tekla Drawing API</p>
+      </div>
+    </div>
+    <div class="tool-grid">
+      <figure class="shot">
+        <a href="assets/img/drawer-ui.png" class="zoom"><img src="assets/img/drawer-ui.png" alt="Drawer settings for bent plates and assemblies" loading="lazy"></a>
+        <figcaption>View, section and dimension settings for bent plates and assemblies.</figcaption>
+      </figure>
+      <div class="tool-text">
+        <ul class="features">
+          <li><b>Assembly drawings in one pass.</b> Main, top and bottom views, automatic sections at every
+            detail, a 3D view, part marks on all views and the sheet size picked to fit.</li>
+          <li><b>Rebuild instead of redraw.</b> Selected drawings get their views and dimensions regenerated
+            after model changes; new drawings are created for selected parts.</li>
+          <li><b>Bent plates done right.</b> The unfolded shape with dimensioned bend lines plus views of the
+            bent part with overall size and bend radius.</li>
+          <li><b>Company standards kept.</b> Uses the team’s view, section, dimension and layout property files;
+            optional PDF output for every drawing.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="shot">
+        <a href="assets/img/drawer-assembly.png" class="zoom"><img src="assets/img/drawer-assembly.png" alt="Generated assembly drawing with sections and dimensions" loading="lazy"></a>
+        <figcaption>Generated assembly drawing: main and plan views, six sections, dimensions and a 3D view.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="assets/img/drawer-bent.png" class="zoom"><img src="assets/img/drawer-bent.png" alt="Bent plate drawing with unfolded shape, bend line and radius" loading="lazy"></a>
+        <figcaption>Bent plate: unfolded shape with the bend line, side views with radius, 3D view.</figcaption>
+      </figure>
+      <div class="video-slot" data-youtube="" data-title="Drawer walkthrough">
+        <span class="video-icon">▶</span>
+        <p><b>Video walkthrough</b><br>coming soon</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ============================================================ TEKLA INTEGRATION -->
+<section class="section alt" id="tekla">
+  <div class="wrap">
+    <h2>Built into Tekla, deployed from one folder</h2>
+    <p class="section-lead">The whole team runs the same versions without installers: a shared server folder,
+      launcher macros and a custom tab in <i>Applications &amp; components</i>.</p>
+
+    <div class="icons-row">
+      <figure><img src="assets/img/icon-report-checker.png" alt="" width="72" height="72"><figcaption>Report checker</figcaption></figure>
+      <figure><img src="assets/img/icon-convertstp.png" alt="" width="72" height="72"><figcaption>Convertstp</figcaption></figure>
+      <figure><img src="assets/img/icon-drawer.png" alt="" width="72" height="72"><figcaption>Drawer</figcaption></figure>
+      <figure><img src="assets/img/icon-import-components.png" alt="" width="72" height="72"><figcaption>Import components</figcaption></figure>
+      <figure><img src="assets/img/icon-import-plugins.png" alt="" width="72" height="72"><figcaption>Import plugins</figcaption></figure>
+    </div>
+    <p class="caption-center">Custom macro icons in the company tab of the Tekla catalog.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Launcher macros</h3>
+        <p>A tiny C# macro copies the exe from the server to <code>%LOCALAPPDATA%</code> only when the server
+          copy is newer, then starts it. The server file is never locked, so a new version is published at
+          any time and picked up on the next click.</p>
+      </div>
+      <div class="card">
+        <h3>Company catalog tab</h3>
+        <p>A custom <code>*_ComponentCatalog.ac.xml</code> in the firm folder adds a tab with the tools,
+          shared components and plugins — with thumbnails — to every model of every user.</p>
+      </div>
+      <div class="card">
+        <h3>Shared components</h3>
+        <p>An import macro brings <code>.uel</code> custom components from the firm folder into an open model,
+          never overwrites components that already exist there, copies thumbnails and offers to save.</p>
+      </div>
+      <div class="card">
+        <h3>Shared plugins</h3>
+        <p>Plugin DLLs are distributed to each workstation. Names are read from the
+          <code>[Plugin]</code> attribute via reflection-only loading, and an installed plugin is never
+          replaced — so existing parts are not regenerated and numbering stays intact.</p>
+      </div>
+      <div class="card">
+        <h3>Firm folder &amp; templates</h3>
+        <p>One <code>XS_FIRM</code> folder for attributes, report and drawing templates and mark templates,
+          wired into every model’s advanced options — including the traps where Tekla rewrites
+          <code>options.ini</code>.</p>
+      </div>
+      <div class="card">
+        <h3>Publishing</h3>
+        <p>A publish script copies the exe through a temporary file and updates macros and icons only when
+          their hash changes, so users never get a half-written file.</p>
+      </div>
+    </div>
+
+    <details class="code-block">
+      <summary>Launcher macro (C#, Tekla Akit) — the pattern behind every toolbar button</summary>
+<pre><code><span class="c">// Starts the tool from the shared macro folder. The exe is copied to
+// %LOCALAPPDATA% and run from there, so the server copy is never locked
+// and can be replaced at any time.</span>
+<span class="k">public static void</span> Run(Tekla.Technology.Akit.IScript akit)
+{
+    <span class="k">string</span> localDir = Path.Combine(Environment.GetFolderPath(
+        Environment.SpecialFolder.LocalApplicationData), AppName);
+    <span class="k">string</span> localExe = Path.Combine(localDir, AppName + <span class="s">".exe"</span>);
+    <span class="k">try</span>
+    {
+        Directory.CreateDirectory(localDir);
+        <span class="k">if</span> (NeedsUpdate(ServerExe, localExe))
+        {
+            <span class="c">// temp file first: a network drop never breaks the working copy</span>
+            <span class="k">string</span> temp = localExe + <span class="s">".new"</span>;
+            File.Copy(ServerExe, temp, <span class="k">true</span>);
+            File.SetLastWriteTimeUtc(temp, File.GetLastWriteTimeUtc(ServerExe));
+            <span class="k">try</span> { File.Delete(localExe); File.Move(temp, localExe); }
+            <span class="k">catch</span> (IOException) { } <span class="c">// old version still open — update next time</span>
+        }
+    }
+    <span class="k">catch</span> (Exception) { } <span class="c">// server offline — run the last copied version</span>
+    Process.Start(<span class="k">new</span> ProcessStartInfo(localExe) { WorkingDirectory = localDir, UseShellExecute = <span class="k">true</span> });
+}</code></pre>
+    </details>
+  </div>
+</section>
+
+<!-- ============================================================ PLUGINS -->
+<section class="section" id="plugins">
+  <div class="wrap two-col">
+    <div>
+      <h2>Plugins &amp; macros</h2>
+      <p>Ten custom Tekla plugins (<code>PluginBase</code> with WPF dialogs) model the connections the team
+        repeats hundreds of times, so they are placed in seconds and always come out the same.</p>
+      <ul class="checklist">
+        <li><b>Bracket plugins</b> — a bent angle bracket between two frame tubes or at a picked point:
+          flanges laid on the member faces, bend line and hole pattern calculated, bolts added.</li>
+        <li><b>Truss joint plugins</b> — a family of joints for tube trusses in four variants.</li>
+        <li><b>Text and profile cut-outs</b> — engraved text and profile-shaped cuts in plates.</li>
+        <li><b>Point placement</b> and an <b>inspector</b> for checking joint parameters in the model.</li>
+        <li><b>UI automation macros</b> — e.g. hiding distance variables in the custom component editor
+          through Win32 when the API offers no way.</li>
+      </ul>
+    </div>
+    <div class="card plugin-card">
+      <img src="assets/img/icon-import-plugins.png" alt="" width="96" height="96">
+      <h3>Why it matters</h3>
+      <p>A plugin re-runs whenever the model changes. Shipping a new plugin version to a workstation in the
+        middle of a project could silently rebuild parts and break part numbering — so the distribution
+        macro only adds plugins that are missing and never touches installed ones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ STACK -->
+<section class="section alt" id="stack">
+  <div class="wrap">
+    <h2>Tech stack</h2>
+    <div class="stack">
+      <div><h3>Tekla Open API</h3><p>Model, Drawing, Catalogs, Plugins, Akit macros, NC/DSTV and IFC export,
+        remoting channels, multi-user models</p></div>
+      <div><h3>C# / .NET Framework 4.8</h3><p>WinForms and WPF, per-monitor DPI, reflection-only loading,
+        Win32 interop</p></div>
+      <div><h3>Python</h3><p>tkinter, openpyxl, PyInstaller single-file builds, subprocess bridge to C#</p></div>
+      <div><h3>CAD formats</h3><p>DXF R12 writer &amp; reader, DSTV/NC1, IFC rewriting, STEP reader,
+        IGES writer, NURBS and B-splines</p></div>
+      <div><h3>Geometry</h3><p>Polygon clipping, free-space search for marks, ellipse fitting, text outlines
+        from TrueType fonts</p></div>
+      <div><h3>Deployment</h3><p>Shared server folder, launcher macros, firm folder, catalog tabs, publish
+        scripts</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-box">
+    <h2>Need Tekla automation?</h2>
+    <p>Exports, drawings, reports, plugins or a deployment that just works for the whole team — let’s talk.</p>
+    <div class="contact-actions">
+      <a class="btn" href="https://t.me/AmberKnightor" target="_blank" rel="noopener">Telegram @AmberKnightor</a>
+      <a class="btn btn-light" href="mailto:kwazamentor@gmail.com">kwazamentor@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">© <span id="year">2026</span> AmberKnightor · Tekla Structures tools, plugins and macros.
+    Tekla is a trademark of Trimble Inc.; this is an independent portfolio.</div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" aria-label="Close">×</button>
+  <img alt="">
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
